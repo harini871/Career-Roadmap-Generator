@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Skill Gap Analyzer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>Skill Gap Analyzer & Career Roadmap Generator</h2>
+
+    <!-- Job Role -->
+    <label><b>Select Job Role</b></label
+    ><br />
+    <select id="role" onchange="showSkills()">
+      <option value="">-- Select Role --</option>
+
+      <option value="Java Developer">Java Developer</option>
+      <option value="Python Developer">Python Developer</option>
+      <option value="Frontend Developer">Frontend Developer</option>
+      <option value="Full Stack Developer">Full Stack Developer</option>
+
+      <option value="Data Analyst">Data Analyst</option>
+      <option value="Data Scientist">Data Scientist</option>
+
+      <option value="Cloud Engineer">Cloud Engineer</option>
+      <option value="DevOps Engineer">DevOps Engineer</option>
+
+      <option value="Cyber Security Analyst">Cyber Security Analyst</option>
+
+      <option value="Software Tester">Software Tester</option>
+      <option value="Mobile App Developer">Mobile App Developer</option>
+    </select>
+
+    <br /><br />
+
+    <!-- Skill Hint -->
+    <p><b>Required Skills for Selected Role:</b></p>
+    <p id="roleSkills" style="color: blue"></p>
+
+    <br />
+
+    <!-- User Skills -->
+    <label><b>Enter Your Skills</b></label
+    ><br />
+    <input type="text" id="skills" placeholder="Example: Java, SQL, OOP" />
+    <br /><br />
+
+    <button onclick="analyze()">Analyze Skills</button>
+
+    <h3>Missing Skills</h3>
+    <ul id="missing"></ul>
+
+    <h3>Career Roadmap</h3>
+    <ul id="roadmap"></ul>
+
+    <script src="script.js"></script>
+
+    <script>
+      function showSkills() {
+        const role = document.getElementById("role").value;
+
+        const skillsByRole = {
+          "Java Developer": "Java, OOP, Spring Boot, SQL, Git",
+          "Python Developer": "Python, OOP, Django/Flask, SQL, Git",
+          "Frontend Developer": "HTML, CSS, JavaScript, React",
+          "Full Stack Developer":
+            "Java, Spring Boot, HTML, CSS, JavaScript, SQL",
+          "Data Analyst": "Python, SQL, Excel, Statistics, Power BI",
+          "Data Scientist": "Python, Machine Learning, Statistics",
+          "Cloud Engineer": "AWS/Azure, Linux, Networking, Docker",
+          "DevOps Engineer": "Linux, Git, Docker, Jenkins, Kubernetes",
+          "Cyber Security Analyst": "Networking, Ethical Hacking, Cryptography",
+          "Software Tester": "Manual Testing, Selenium, Test Cases",
+          "Mobile App Developer": "Java/Kotlin, Android, Firebase",
+        };
+
+        document.getElementById("roleSkills").innerText =
+          skillsByRole[role] || "";
+      }
+    </script>
+  </body>
+</html>
